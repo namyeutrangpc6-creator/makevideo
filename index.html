@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#10131b" />
+  <title>Remix Studio AI</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-icon">R</div><div><b>Remix Studio</b><small>AI VIDEO WORKSPACE</small></div></div>
+      <nav><a class="active" href="#studio">◈ <span>Studio</span></a><a href="#queue">▤ <span>Hàng đợi</span></a><a href="#guide">ⓘ <span>Hướng dẫn</span></a></nav>
+      <div class="side-note"><span class="dot"></span> Chạy xử lý trên trình duyệt<br/><small>Video gốc không tự tải lên server.</small></div>
+    </aside>
+    <main id="studio">
+      <header class="topbar"><div><p class="eyebrow">VIDEO WORKFLOW / BẢN THỬ NGHIỆM</p><h1>AI Video Remix</h1><p class="muted">Tạo 10 cách kể chuyện khác nhau từ video sản phẩm của bạn.</p></div><div class="pill"><span class="dot"></span> 9:16 · MP4</div></header>
+      <section class="steps"><div class="step active"><span>01</span><div><b>Video gốc</b><small>Tải lên & xem trước</small></div></div><div class="step"><span>02</span><div><b>Kịch bản AI</b><small>10 lời bình khác nhau</small></div></div><div class="step"><span>03</span><div><b>Dựng & xuất</b><small>Video dọc MP4</small></div></div></section>
+      <div class="layout">
+        <section class="panel source-panel">
+          <div class="panel-head"><div><h2>01 · Video gốc</h2><p class="muted">Chọn video bạn có quyền sử dụng.</p></div><span class="tag">INPUT</span></div>
+          <label class="dropzone" id="dropzone" for="videoFile"><div class="upload-icon">↑</div><b>Kéo video vào đây hoặc bấm để chọn</b><span>MP4, MOV, WebM · nên dưới 60 giây</span><input id="videoFile" type="file" accept="video/*" /></label>
+          <div id="videoMeta" class="video-meta hidden"><video id="preview" controls playsinline></video><div><b id="fileName">video.mp4</b><p id="fileInfo" class="muted"></p><button id="removeVideo" class="btn btn-quiet">Gỡ video</button></div></div>
+          <div class="field"><label for="productBrief">Mô tả sản phẩm và thông tin đúng cần giữ</label><textarea id="productBrief" rows="4" placeholder="Ví dụ: bình giữ nhiệt 500 ml, giữ nóng/lạnh, chất liệu..., giá/ưu đãi nếu có. Không thêm công dụng chưa được xác minh."></textarea></div>
+          <div class="field"><label for="audience">Khách hàng mục tiêu</label><input id="audience" type="text" placeholder="Ví dụ: người đi làm, người hay đi du lịch" /></div>
+          <div class="field"><label for="cta">Lời kêu gọi hành động (tuỳ chọn)</label><input id="cta" type="text" placeholder="Ví dụ: Xem thông tin sản phẩm tại liên kết" /></div>
+          <div class="field"><label for="brollFile">Cảnh bổ sung có quyền sử dụng (tuỳ chọn)</label><input id="brollFile" type="file" accept="image/*,video/*" multiple /><small class="hint">Bản thử nghiệm này nhận cảnh bổ sung làm tư liệu tham khảo; chưa tự ghép chúng vào timeline.</small></div>
+        </section>
+        <section class="panel config-panel">
+          <div class="panel-head"><div><h2>02 · Cấu hình remix</h2><p class="muted">Một video gốc · 10 hướng kể chuyện.</p></div><span class="tag purple">AI ASSIST</span></div>
+          <div class="setting"><div><b>Số phiên bản</b><small>Cố định cho cấu hình hiện tại</small></div><strong class="big-number">10</strong></div>
+          <div class="setting"><div><b>Tỷ lệ khung hình</b><small>Dành cho Reels / TikTok / Shorts</small></div><strong>9:16</strong></div>
+          <div class="setting"><div><b>Lời bình</b><small>AI tạo kịch bản và giọng đọc mới</small></div><strong>Tiếng Việt</strong></div>
+          <div class="field"><label for="styleMix">Phong cách kịch bản</label><select id="styleMix"><option value="mix">Tự phối 10 phong cách khác nhau</option><option value="benefit">Tập trung lợi ích thực tế</option><option value="demo">Trình diễn cách dùng</option><option value="story">Kể chuyện tình huống</option><option value="faq">Giải đáp câu hỏi thường gặp</option></select></div>
+          <div class="field"><label for="voice">Giọng đọc</label><select id="voice"><option value="alloy">Alloy — trung tính</option><option value="coral">Coral — thân thiện</option><option value="sage">Sage — điềm tĩnh</option><option value="verse">Verse — biểu cảm</option></select></div>
+          <div class="field"><label for="apiBase">Địa chỉ API Worker</label><input id="apiBase" type="url" placeholder="https://ten-worker.ten-tk.workers.dev" /><small class="hint">Không nhập API key tại đây. Key phải được lưu bằng Worker secret.</small></div>
+          <div class="actions"><button id="generateBtn" class="btn btn-primary" disabled>✦ Tạo 10 kịch bản AI</button><button id="demoBtn" class="btn btn-secondary">Dùng kịch bản mẫu</button></div>
+          <p class="status-line" id="statusLine" role="status">Chọn video và nhập mô tả để bắt đầu.</p>
+        </section>
+      </div>
+      <section id="queue" class="panel queue-panel">
+        <div class="panel-head"><div><h2>03 · Kịch bản & xuất video</h2><p class="muted">Kiểm tra nội dung trước khi tạo giọng đọc và dựng video.</p></div><div class="queue-actions"><button id="voiceAllBtn" class="btn btn-secondary" disabled>♫ Tạo 10 giọng đọc</button><button id="renderAllBtn" class="btn btn-primary" disabled>▶ Dựng 10 video</button></div></div>
+        <div id="emptyState" class="empty"><div>✧</div><b>Chưa có kịch bản</b><p>Kịch bản AI sẽ xuất hiện ở đây.</p></div>
+        <div id="scriptList" class="script-list"></div>
+        <div id="renderProgress" class="progress-wrap hidden"><div class="progress-label"><span id="progressText">Đang xử lý…</span><span id="progressPct">0%</span></div><div class="progress"><span id="progressBar"></span></div></div>
+        <div id="downloads" class="downloads"></div>
+      </section>
+      <section id="guide" class="footer-note"><b>Lưu ý:</b> Công cụ giúp tạo nội dung sáng tạo khác nhau, không bảo đảm nền tảng sẽ xem các video là không trùng lặp. Hãy dùng video/nhạc/cảnh bổ sung bạn có quyền sử dụng và kiểm tra tính chính xác của mọi tuyên bố quảng cáo.</section>
+      <footer>Remix Studio AI · MVP · Cloudflare Pages + Worker</footer>
+    </main>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.12.10/dist/umd/ffmpeg.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@ffmpeg/util@0.12.1/dist/umd/index.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
