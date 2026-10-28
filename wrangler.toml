@@ -1,8 +1,0 @@
-name = "remix-studio-ai-worker"
-main = "worker.js"
-compatibility_date = "2026-10-01"
-
-[vars]
-# Optional; defaults are set in worker.js.
-OPENAI_TEXT_MODEL = "gpt-4.1-mini"
-OPENAI_TTS_MODEL = "gpt-4o-mini-tts"
