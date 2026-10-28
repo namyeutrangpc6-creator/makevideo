@@ -28,19 +28,19 @@
           <div class="field"><label for="brollFile">Cảnh bổ sung có quyền sử dụng (tuỳ chọn)</label><input id="brollFile" type="file" accept="image/*,video/*" multiple /><small class="hint">Bản thử nghiệm này nhận cảnh bổ sung làm tư liệu tham khảo; chưa tự ghép chúng vào timeline.</small></div>
         </section>
         <section class="panel config-panel">
-          <div class="panel-head"><div><h2>02 · Cấu hình remix</h2><p class="muted">Một video gốc · 10 hướng kể chuyện.</p></div><span class="tag purple">AI ASSIST</span></div>
-          <div class="setting"><div><b>Số phiên bản</b><small>Cố định cho cấu hình hiện tại</small></div><strong class="big-number">10</strong></div>
+          <div class="panel-head"><div><h2>02 · Cấu hình remix</h2><p class="muted">Chọn số lượng phiên bản muốn tạo.</p></div><span class="tag purple">AI ASSIST</span></div>
+          <div class="field"><label for="scriptCount">Số lượng kịch bản / video</label><input id="scriptCount" type="number" min="1" max="20" step="1" value="5" /><small class="hint">Chọn từ 1 đến 20 phiên bản. Mặc định là 5 để dễ thử trước.</small></div>
           <div class="setting"><div><b>Tỷ lệ khung hình</b><small>Dành cho Reels / TikTok / Shorts</small></div><strong>9:16</strong></div>
           <div class="setting"><div><b>Lời bình</b><small>AI tạo kịch bản và giọng đọc mới</small></div><strong>Tiếng Việt</strong></div>
-          <div class="field"><label for="styleMix">Phong cách kịch bản</label><select id="styleMix"><option value="mix">Tự phối 10 phong cách khác nhau</option><option value="benefit">Tập trung lợi ích thực tế</option><option value="demo">Trình diễn cách dùng</option><option value="story">Kể chuyện tình huống</option><option value="faq">Giải đáp câu hỏi thường gặp</option></select></div>
+          <div class="field"><label for="styleMix">Phong cách kịch bản</label><select id="styleMix"><option value="mix">Tự phối phong cách khác nhau</option><option value="benefit">Tập trung lợi ích thực tế</option><option value="demo">Trình diễn cách dùng</option><option value="story">Kể chuyện tình huống</option><option value="faq">Giải đáp câu hỏi thường gặp</option></select></div>
           <div class="field"><label for="voice">Giọng đọc</label><select id="voice"><option value="alloy">Alloy — trung tính</option><option value="coral">Coral — thân thiện</option><option value="sage">Sage — điềm tĩnh</option><option value="verse">Verse — biểu cảm</option></select></div>
           <div class="field"><label for="apiBase">Địa chỉ API Worker</label><input id="apiBase" type="url" placeholder="https://ten-worker.ten-tk.workers.dev" /><small class="hint">Không nhập API key tại đây. Key phải được lưu bằng Worker secret.</small></div>
-          <div class="actions"><button id="generateBtn" class="btn btn-primary" disabled>✦ Tạo 10 kịch bản AI</button><button id="demoBtn" class="btn btn-secondary">Dùng kịch bản mẫu</button></div>
+          <div class="actions"><button id="generateBtn" class="btn btn-primary" disabled>✦ Tạo kịch bản AI</button><button id="demoBtn" class="btn btn-secondary">Dùng kịch bản mẫu</button></div>
           <p class="status-line" id="statusLine" role="status">Chọn video và nhập mô tả để bắt đầu.</p>
         </section>
       </div>
       <section id="queue" class="panel queue-panel">
-        <div class="panel-head"><div><h2>03 · Kịch bản & xuất video</h2><p class="muted">Kiểm tra nội dung trước khi tạo giọng đọc và dựng video.</p></div><div class="queue-actions"><button id="voiceAllBtn" class="btn btn-secondary" disabled>♫ Tạo 10 giọng đọc</button><button id="renderAllBtn" class="btn btn-primary" disabled>▶ Dựng 10 video</button></div></div>
+        <div class="panel-head"><div><h2>03 · Kịch bản & xuất video</h2><p class="muted">Kiểm tra nội dung trước khi tạo giọng đọc và dựng video.</p></div><div class="queue-actions"><button id="voiceAllBtn" class="btn btn-secondary" disabled>♫ Tạo giọng đọc</button><button id="renderAllBtn" class="btn btn-primary" disabled>▶ Dựng video</button></div></div>
         <div id="emptyState" class="empty"><div>✧</div><b>Chưa có kịch bản</b><p>Kịch bản AI sẽ xuất hiện ở đây.</p></div>
         <div id="scriptList" class="script-list"></div>
         <div id="renderProgress" class="progress-wrap hidden"><div class="progress-label"><span id="progressText">Đang xử lý…</span><span id="progressPct">0%</span></div><div class="progress"><span id="progressBar"></span></div></div>
