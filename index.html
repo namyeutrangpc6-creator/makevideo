@@ -33,7 +33,24 @@
           <div class="setting"><div><b>Tỷ lệ khung hình</b><small>Dành cho Reels / TikTok / Shorts</small></div><strong>9:16</strong></div>
           <div class="setting"><div><b>Lời bình</b><small>AI tạo kịch bản và giọng đọc mới</small></div><strong>Tiếng Việt</strong></div>
           <div class="field"><label for="styleMix">Phong cách kịch bản</label><select id="styleMix"><option value="mix">Tự phối phong cách khác nhau</option><option value="benefit">Tập trung lợi ích thực tế</option><option value="demo">Trình diễn cách dùng</option><option value="story">Kể chuyện tình huống</option><option value="faq">Giải đáp câu hỏi thường gặp</option></select></div>
-          <div class="field"><label for="voice">Giọng đọc</label><select id="voice"><option value="alloy">Alloy — trung tính</option><option value="coral">Coral — thân thiện</option><option value="sage">Sage — điềm tĩnh</option><option value="verse">Verse — biểu cảm</option></select></div>
+          <div class="field">
+            <label for="voice">Giọng đọc tiếng Việt</label>
+            <select id="voice">
+              <option value="diem_trinh">Diễm Trinh</option>
+              <option value="hung_thinh">Hưng Thịnh</option>
+              <option value="mai_linh">Mai Linh</option>
+              <option value="mai_loan">Mai Loan</option>
+              <option value="manh_dung">Mạnh Dũng</option>
+              <option value="my_yen">Mỹ Yến</option>
+              <option value="ngoc_huyen">Ngọc Huyền</option>
+              <option value="phat_tai">Phát Tài</option>
+              <option value="thanh_dat">Thành Đạt</option>
+              <option value="thuc_trinh">Thục Trinh</option>
+              <option value="tuan_ngoc">Tuấn Ngọc</option>
+              <option value="duc_an">Đức An</option>
+              <option value="duc_duy">Đức Duy</option>
+            </select>
+          </div>
           <div class="field"><label for="apiBase">Địa chỉ API Worker</label><input id="apiBase" type="url" placeholder="https://ten-worker.ten-tk.workers.dev" /><small class="hint">Không nhập API key tại đây. Key phải được lưu bằng Worker secret.</small></div>
           <div class="actions"><button id="generateBtn" class="btn btn-primary" disabled>✦ Tạo kịch bản AI</button><button id="demoBtn" class="btn btn-secondary">Dùng kịch bản mẫu</button></div>
           <p class="status-line" id="statusLine" role="status">Chọn video và nhập mô tả để bắt đầu.</p>
